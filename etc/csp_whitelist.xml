@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<csp_whitelist 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="default-src">
+            <values>
+                <value id="zilla_default" type="host">*.usezilla.com</value>
+            </values>
+            <values>
+                <value id="google_default" type="host">*.google.com</value>
+            </values>
+            <values>
+                <value id="cloudinary_default" type="host">*.cloudinary.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="zilla_connect" type="host">*.usezilla.com</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="zilla_cdn" type="host">cdn.jsdelivr.net</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="data" type="host">data:</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
+

@@ -1,0 +1,17 @@
+<?php
+/* @var $block /Magento\Catalog\Block\Product\View*/
+$product = $block->getProduct();
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+
+$price = doubleval($product->getFinalPrice()) / 4;
+$priceFormatted = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($price, 2), true, false);
+
+?>
+<div class="product attribute custom" style="display: flex;align-items: center;">
+    <span>Or 4 payments of <?= $priceFormatted ?> with </span>
+    <img alt="Zilla" src="https://res.cloudinary.com/zillaafrica/image/upload/v1623533492/customer/Zilla_Updated_l9yevg.png" style="width: 40px; height: 15px; margin-left: 5px;" />.
+    <a style="margin-left: 5px;text-decoration: underline;color: gray;font-size: 11px;" href="https://blog.usezilla.com/paying-with-zilla-in-instalments-how-it-works/">Learn more</a>
+</div>

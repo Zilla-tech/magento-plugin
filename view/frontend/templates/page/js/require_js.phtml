@@ -1,0 +1,7 @@
+ <script src="https://cdn.jsdelivr.net/npm/@usezilla/zilla-connect@1.0.4/index.js"></script>
+<script>
+    var BASE_URL = '<?= $block->escapeUrl($block->getBaseUrl()) ?>';
+    var require = {
+        "baseUrl": "<?= /* @escapeNotVerified */ $block->getViewFileUrl('/') ?>"
+    };
+</script>

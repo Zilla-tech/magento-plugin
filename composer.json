@@ -1,0 +1,22 @@
+{
+    "name": "zilla/magento2-module",
+    "description": "Zilla Magento2 Module using \\Magento\\Payment\\Model\\Method\\AbstractMethod",
+    "minimum-stability": "dev",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emmanuel Akinjole",
+            "email": "akinwizguy@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Zilla\\Payments\\": ""
+        }
+    }
+}

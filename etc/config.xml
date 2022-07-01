@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <zilla_payments>
+                <active>0</active>
+                <model>Zilla\Payments\Model\Payment\Zilla</model>
+                <test_mode>1</test_mode>
+                <title>Buy now pay later with Zilla</title>
+                <live_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <test_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <sort_order>400</sort_order>
+            </zilla_payments>
+        </payment>
+    </default>
+</config>

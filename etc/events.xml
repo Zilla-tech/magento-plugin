@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="sales_order_place_before">
+		<observer name="ZillaPayments_ObserverBeforeSalesOrderPlace" instance="Zilla\Payments\Observer\ObserverBeforeSalesOrderPlace" />
+	</event>
+	<event name="zilla_payments_verify_after">
+		<observer name="ZillaPayments_ObserverAfterPaymentVerify" instance="Zilla\Payments\Observer\ObserverAfterPaymentVerify" />
+	</event>
+</config>
