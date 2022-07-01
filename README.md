@@ -23,13 +23,13 @@ php bin/magento setup:static-content:deploy
 
 ![Stores → Configuration -> Sales -> Payments Method](images/screencapture-zilla-payment-system-config.png "Zilla Payment Gateway")
 
-**Enable** - this option allows you to enable the Zilla Payment with your Magento store(s). Before enabling the extension, you must fill in the test and live keys.
-**Merchant ID** - is given to you by Zilla when setting up account.
-**Test secret key** - is given to you by Zilla when setting up account.
-**Test public key** - is given to you by Zilla when setting up account.
-**Live secret key** - is given to you by Zilla when setting up account.
-**Live public key** - is given to you by Zilla when setting up account.
-**Test Mode** - select Yes, to enable test environment.
+- **Enable** - this option allows you to enable the Zilla Payment with your Magento store(s). Before enabling the extension, you must fill in the test and live keys.
+- **Merchant ID** - is given to you by Zilla when setting up account.
+- **Test secret key** - is given to you by Zilla when setting up account.
+- **Test public key** - is given to you by Zilla when setting up account.
+- **Live secret key** - is given to you by Zilla when setting up account.
+- **Live public key** - is given to you by Zilla when setting up account.
+- **Test Mode** - select Yes, to enable test environment.
 
 1. Merchant ID
 2. Test secret key
