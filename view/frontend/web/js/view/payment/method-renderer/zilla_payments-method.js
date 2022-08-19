@@ -60,6 +60,12 @@ define(
                     var quoteName = checkoutConfig.quoteItemData[0].name;
                     var quoteReference = 'MAGE_' + Math.floor((Math.random() * 1000000000000) + 1) + '_' + quoteId;
 
+                    let amount = Math.ceil(quote.totals().grand_total);
+
+                    if (zillaConfiguration.customer_percentage_charge != null) {
+                        amount += (zillaConfiguration.customer_percentage_charge/100) * amount;
+                    }
+
                     var _this = this;
                     _this.isPlaceOrderActionAllowed(false);
 
@@ -69,7 +75,7 @@ define(
                     connect.openNew({
                         publicKey: zillaConfiguration.public_key,
                         clientOrderReference: quoteReference,
-                        amount: Math.ceil(quote.totals().grand_total),
+                        amount,
                         title: quoteName,
                         onSuccess: function (response) {
                             isSuccessful = true;

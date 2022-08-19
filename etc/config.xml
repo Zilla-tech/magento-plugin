@@ -10,6 +10,7 @@
                 <live_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
                 <test_secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
                 <order_status>pending</order_status>
+                <charge_customer>0</charge_customer>
                 <allowspecific>0</allowspecific>
                 <sort_order>400</sort_order>
             </zilla_payments>

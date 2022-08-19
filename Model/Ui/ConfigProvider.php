@@ -34,10 +34,15 @@ final class ConfigProvider implements ConfigProviderInterface
     {
         $public_key = $this->method->getConfigData('live_public_key');
         $secret_key = $this->method->getConfigData('live_secret_key');
+        $this->customer_percentage_charge = null;
 
         if ($this->method->getConfigData('test_mode')) {
             $public_key = $this->method->getConfigData('test_public_key');
             $secret_key = $this->method->getConfigData('test_secret_key');
+        }
+
+        if ($this->method->getConfigData('charge_customer')) {
+            $this->customer_percentage_charge = floatval($this->method->getConfigData('charge_percentage'));
         }
 
         return [
@@ -48,6 +53,7 @@ final class ConfigProvider implements ConfigProviderInterface
                     'secret_key' => $secret_key,
                     'api_url' => $this->store->getBaseUrl() . 'rest/',
                     'recreate_quote_url' => $this->store->getBaseUrl() . 'zilla/payment/recreate',
+                    'customer_percentage_charge' => $this->customer_percentage_charge,
                 ]
             ]
         ];
