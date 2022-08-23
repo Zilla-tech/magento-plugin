@@ -44,6 +44,11 @@
                 </field>
                 <field id="charge_percentage" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Charge Percentage</label>
+                    <comment>Percentage range between 0-5</comment>
+                    <validate>required-entry validate-number validate-digits-range digits-range-0-5</validate>
+                    <depends>
+                        <field id="payment/zilla_payments/charge_customer">1</field>
+                    </depends>
                 </field>
                 <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Sort Order</label>
