@@ -2,34 +2,31 @@
 /* @var $block /Magento\Catalog\Block\Product\View*/
 $product = $block->getProduct();
 
-
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
-
-$price = doubleval($product->getFinalPrice()) / 4;
-$priceFormatted = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($price, 2), true, false);
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$currencySymbol = $storeManager->getStore()->getBaseCurrency()->getCurrencySymbol();
 
 ?>
 <div class="product attribute custom zilla-split-amount-wrapper" style="display: none;align-items: center;">
-    <span class="">Or 4 payments of <span class="zilla-slit-amount-price"></span> with </span>
+    <span>Or 4 payments of
+        <span class="zilla-slit-amount-currency"><?= $currencySymbol ?></span>
+        <span class="zilla-slit-amount-price"></span>
+        with
+    </span>
     <img alt="Zilla" src="https://res.cloudinary.com/zillaafrica/image/upload/v1623533492/customer/Zilla_Updated_l9yevg.png" style="width: 40px; height: 15px; margin-left: 5px;" />.
     <a style="margin-left: 5px;text-decoration: underline;color: gray;font-size: 11px;" href="https://blog.usezilla.com/paying-with-zilla-in-instalments-how-it-works/">Learn more</a>
 </div>
-
 
 <script>
     // <![CDATA[
     require([
         'jquery',
-        'Magento_Catalog/js/price-utils'
-    ], function($, priceUtils) {
+    ], function($) {
         $el = $('.price-wrapper[data-price-amount]');
         const amount = $($el[0]).data('price-amount');
+        $('.zilla-slit-amount-price').text(`${(parseFloat(amount) / 4).toFixed(2)}`);
+        $('.zilla-split-amount-wrapper').css('display', 'flex');
 
-        const currency = $($('meta[itemprop=priceCurrency]')[0]).attr('content')
-
-        $('.zilla-slit-amount-price').text(`${currency} ${Math.ceil(parseFloat(amount) / 4) }`);
-        $('.zilla-split-amount-wrapper').css('display', 'flex')
     });
-    // ]]> 
+    // ]]>
 </script>
